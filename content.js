@@ -1,11 +1,18 @@
+const clearKeys = [
+    'Escape', // US Keyboard setup
+    'Alphanumeric', // ibus 日本語キーボードー
+]
+
 const isClearCommand = (event) => {
-    if (event.key === 'c' && event.ctrlKey) return true
-    if (event.key === 'Escape') return true
+    if (clearKeys.includes(event.key)) return true
 }
 
 document.addEventListener('keydown', (event) => {
+    const input =
+        document.getElementById('user-response') || // WaniKani
+        document.querySelector('input[name="answer"]') // KameSame
+
     if (isClearCommand(event)) {
-        const input = document.getElementById('user-response')
         input.value = ''
     }
 })

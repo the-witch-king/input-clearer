@@ -1,13 +1,16 @@
 {
-  "name": "WaniKani Clearer",
-  "version": "0.1",
-  "description": "Clear the input box when doing reviews by pressing ctrl+c",
-  "manifest_version": 2,
-  "permissions": ["activeTab"],
-  "content_scripts": [
-    {
-      "matches": ["https://www.wanikani.com/*"],
-      "js": ["content.js"]
-    }
-  ]
+    "name": "Input Clearer",
+    "version": "0.1",
+    "description": "Clear the input box when doing reviews in WaniKani or KameSame by pressing 'capslock' (bound to escape)",
+    "manifest_version": 2,
+    "permissions": ["activeTab"],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.wanikani.com/*",
+                "https://www.kamesame.com/*"
+            ],
+            "js": ["content.js"]
+        }
+    ]
 }
