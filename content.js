@@ -4,7 +4,11 @@ const clearKeys = [
 ]
 
 const isClearCommand = (event) => {
-    if (clearKeys.includes(event.key)) return true
+    return clearKeys.includes(event.key)
+}
+
+const isUnobfuscationCommand = (event) => {
+    return event.shiftKey && event.key === ' '
 }
 
 document.addEventListener('keydown', (event) => {
@@ -14,5 +18,10 @@ document.addEventListener('keydown', (event) => {
 
     if (isClearCommand(event)) {
         input.value = ''
+    }
+
+    // KameSame obfuscates the correct answer if you're close. This will unobfuscate with a key press.
+    if (isUnobfuscationCommand(event)) {
+        document.querySelectorAll('.obfuscated').forEach((x) => x.click())
     }
 })
