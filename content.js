@@ -20,6 +20,9 @@ document.addEventListener('keydown', (event) => {
         input.value = ''
     }
 
+    // Focus the input after
+    input.focus()
+
     // KameSame obfuscates the correct answer if you're close. This will unobfuscate with a key press.
     if (isUnobfuscationCommand(event)) {
         document.querySelectorAll('.obfuscated').forEach((x) => x.click())
