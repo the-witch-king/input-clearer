@@ -2,8 +2,11 @@
     "name": "Input Clearer",
     "version": "0.1",
     "description": "Clear the input box when doing reviews in WaniKani or KameSame by pressing 'capslock' (bound to escape)",
-    "manifest_version": 2,
-    "permissions": ["activeTab"],
+    "manifest_version": 3,
+    "host_permissions": [
+        "https://www.wanikani.com/*",
+        "https://www.kamesame.com/*"
+    ],
     "content_scripts": [
         {
             "matches": [
